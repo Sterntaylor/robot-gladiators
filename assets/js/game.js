@@ -15,6 +15,11 @@ var fight = function (enemy) {
             // confirm user wants to skip
             var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
+        if (promptFight === "" || promptFight === null) {
+            window.alert("You need to provide a valid answer! Please try again.")
+            return promptFight();
+        }
+
             // if yes (true), leave fight
             if (confirmSkip) {
                 window.alert(playerInfo.name + ' has decided to skip this fight. Goodbye!');
