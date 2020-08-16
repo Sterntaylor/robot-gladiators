@@ -6,6 +6,11 @@
 
 window.alert("Welcome to Robot Gladiators!");
 var fight = function (enemy) {
+    // keep track of who goes first
+    var isPlayerTurn = true;
+    if (Math.random() > 0.5) {
+        isPlayerTurn = false;
+      } 
     while (playerInfo.health > 0 && enemy.health > 0) {
         // ask user if they'd liked to fight or run
         var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
@@ -69,6 +74,7 @@ var fight = function (enemy) {
         } else {
             window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
         }
+        isPlayerTurn = !isPlayerTurn;
     }
 };
 // function to generate a random numeric value
@@ -180,7 +186,7 @@ var shop = function () {
     // ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
         "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
-       // use switch to carry out action
+        // use switch to carry out action
     );
     shopOptionPrompt = parseInt(shopOptionPrompt);
     // use switch case to carry out action
